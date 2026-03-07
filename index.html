@@ -147,6 +147,112 @@
             color: var(--muted);
         }
 
+        /* Opt-In Form Section */
+        .optin-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+        .optin-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .optin-section .section-note {
+            font-size: 14px;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .optin-form {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group select option {
+            background: var(--surface);
+        }
+        .consent-check {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            background: var(--accent-dim);
+            border: 1px solid #f9731630;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+        .consent-check input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+        .consent-check label {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            cursor: pointer;
+        }
+        .consent-byline {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .btn-submit {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 28px;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+        }
+        .btn-submit:hover { opacity: 0.88; }
+
         /* SMS Consent Section */
         .consent-section {
             padding: 60px 0;
@@ -211,7 +317,7 @@
     <section class="hero">
         <div class="container">
             <h1>Never lose a lead to a <span>slow response</span> again</h1>
-            <p>AI-powered instant lead response and qualification for contractors. Every form submission, missed call, and email gets a text back in under 60 seconds.</p>
+            <p>AI-powered instant lead response and qualification for contractors. Every form submission, missed call, and email gets a text back in under 60 seconds. InfluxLead sends SMS messages only in response to inbound inquiries from customers requesting information or services.</p>
         </div>
     </section>
 
@@ -270,6 +376,45 @@
                     <h4>You get the details</h4>
                     <p>Full lead summary, score, and booked estimate on your calendar — before you make a single call.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="optin-section" id="contact-form">
+        <div class="container">
+            <h2>Example homeowner contact form used by businesses using InfluxLead</h2>
+            <p class="section-note">This is a demonstration of the opt-in experience homeowners see when submitting a request through a participating contractor's website.</p>
+            <div class="optin-form">
+                <div class="form-group">
+                    <label for="f-name">Name</label>
+                    <input type="text" id="f-name" placeholder="Jane Smith" />
+                </div>
+                <div class="form-group">
+                    <label for="f-phone">Phone Number</label>
+                    <input type="tel" id="f-phone" placeholder="(555) 000-0000" />
+                </div>
+                <div class="form-group">
+                    <label for="f-project">Project Type</label>
+                    <select id="f-project">
+                        <option value="" disabled selected>Select a project type</option>
+                        <option>Impact Windows</option>
+                        <option>Impact Doors</option>
+                        <option>Roofing</option>
+                        <option>Siding</option>
+                        <option>Insurance Claim Inspection</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="f-message">Message</label>
+                    <textarea id="f-message" placeholder="Describe your project or question..."></textarea>
+                </div>
+                <div class="consent-check">
+                    <input type="checkbox" id="f-consent" />
+                    <label for="f-consent">I agree to receive text messages regarding my inquiry and appointment scheduling. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for assistance.</label>
+                </div>
+                <p class="consent-byline">By submitting this form, you consent to receive SMS messages from [Business Name]. Reply STOP to unsubscribe.</p>
+                <button class="btn-submit" type="button">Request a Free Estimate</button>
             </div>
         </div>
     </section>
